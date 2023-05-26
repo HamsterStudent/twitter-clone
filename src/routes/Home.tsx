@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { dbService } from "fBase";
+import { dbService, storageService } from "fBase";
+import { ref, uploadString } from "@firebase/storage";
+import { v4 as uuidv4 } from "uuid";
 import {
   collection,
   addDoc,
@@ -27,7 +29,7 @@ interface tweetType {
 const Home = ({ userObj }: any) => {
   const [tweet, setTweet] = useState("");
   const [tweets, setTweets] = useState<any>([]);
-
+  const [attachment, setAttachment] = useState();
   // 예전방식이라 안씀
   // const getTweets = async () => {
   //   const q = query(collection(dbService, "tweets"));
@@ -58,18 +60,22 @@ const Home = ({ userObj }: any) => {
 
   const onSubmit = async (event: any) => {
     event.preventDefault();
-    try {
-      const docRef = await addDoc(collection(dbService, "tweets"), {
-        text: tweet,
-        createdAt: serverTimestamp(),
-        creatorId: userObj.uid,
-      });
-      console.log(tweet);
-      console.log("Document written with ID: ", docRef.id);
-    } catch (error) {
-      console.error("Error adding document: ", error);
-    }
-    setTweet("");
+
+    const fileRef = ref(storageService, `${userObj.uid}/${uuidv4()}`);
+    const response = await uploadString(fileRef, attachment!, "data_url");
+    console.log(response);
+    // try {
+    //   const docRef = await addDoc(collection(dbService, "tweets"), {
+    //     text: tweet,
+    //     createdAt: serverTimestamp(),
+    //     creatorId: userObj.uid,
+    //   });
+    //   console.log(tweet);
+    //   console.log("Document written with ID: ", docRef.id);
+    // } catch (error) {
+    //   console.error("Error adding document: ", error);
+    // }
+    // setTweet("");
   };
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
@@ -77,6 +83,21 @@ const Home = ({ userObj }: any) => {
     } = event;
     setTweet(value);
   };
+  const onFileChange = (event: any) => {
+    const {
+      target: { files },
+    } = event;
+    const theFile = files[0];
+    const reader = new FileReader(); // 파일을 가지고 reader를 만든 다음
+    reader.onloadend = (finshedEvent: any) => {
+      const {
+        currentTarget: { result },
+      } = finshedEvent;
+      setAttachment(result);
+    };
+    reader.readAsDataURL(theFile); // reader를 읽음
+  };
+  const onClearAttachment = () => setAttachment(undefined);
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -87,7 +108,14 @@ const Home = ({ userObj }: any) => {
           placeholder="What's on your mind?"
           maxLength={120}
         />
+        <input type="file" accept="image/*" onChange={onFileChange} />
         <input type="submit" value="Tweet" />
+        {attachment && (
+          <div>
+            <img src={attachment} width="50px" />
+            <button onClick={onClearAttachment}>Clear</button>
+          </div>
+        )}
       </form>
       <div>
         {tweets.map((eachTweet: any) => (
