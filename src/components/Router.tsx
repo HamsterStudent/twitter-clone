@@ -13,12 +13,13 @@ import Profile from "routes/Profile";
 interface IAny {
   isLoggedIn: any;
   userObj: any;
+  refreshUser: any;
 }
 
-const AppRouter = ({ isLoggedIn, userObj }: IAny) => {
+const AppRouter = ({ refreshUser, isLoggedIn, userObj }: IAny) => {
   return (
     <Router>
-      {isLoggedIn && <Navigation />}
+      {isLoggedIn && <Navigation userObj={userObj} />}
       <Switch>
         {isLoggedIn ? (
           <>
@@ -26,7 +27,7 @@ const AppRouter = ({ isLoggedIn, userObj }: IAny) => {
               <Home userObj={userObj} />
             </Route>
             <Route exact path="/profile">
-              <Profile />
+              <Profile userObj={userObj} refreshUser={refreshUser} />
             </Route>
           </>
         ) : (
