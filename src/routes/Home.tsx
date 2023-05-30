@@ -19,19 +19,6 @@ const Home = ({ userObj }: any) => {
   const [tweet, setTweet] = useState("");
   const [tweets, setTweets] = useState<any>([]);
   const [attachment, setAttachment] = useState("");
-  // 예전방식이라 안씀
-  // const getTweets = async () => {
-  //   const q = query(collection(dbService, "tweets"));
-  //   const querySnapshot = await getDocs(q);
-  //   querySnapshot.forEach((doc) => {
-  //     console.log(doc.id, " => ", doc.data());
-  //     const tweetObj = {
-  //       ...doc.data(),
-  //       id: doc.id,
-  //     };
-  //     setTweets((prev: SnapshotData[]) => [tweetObj, ...prev]);
-  //   });
-  // };
 
   useEffect(() => {
     const qu = query(
@@ -68,9 +55,6 @@ const Home = ({ userObj }: any) => {
       setTweet("");
       setAttachment("");
     }
-    // const onClearAttachment = () => {
-    //   setAttachment("");
-    // };
   };
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -101,7 +85,6 @@ const Home = ({ userObj }: any) => {
       fileInput.current.value = "";
     }
   };
-
   return (
     <div>
       <form onSubmit={onSubmit}>
