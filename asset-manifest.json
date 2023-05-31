@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/HamsterStudent/twitter-clone.git/static/css/main.ff37f1a6.css",
+    "main.js": "/HamsterStudent/twitter-clone.git/static/js/main.c29c846e.js",
+    "index.html": "/HamsterStudent/twitter-clone.git/index.html",
+    "main.ff37f1a6.css.map": "/HamsterStudent/twitter-clone.git/static/css/main.ff37f1a6.css.map",
+    "main.c29c846e.js.map": "/HamsterStudent/twitter-clone.git/static/js/main.c29c846e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff37f1a6.css",
+    "static/js/main.c29c846e.js"
+  ]
+}
