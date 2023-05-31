@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/HamsterStudent/twitter-clone.git/static/css/main.ff37f1a6.css",
-    "main.js": "/HamsterStudent/twitter-clone.git/static/js/main.c29c846e.js",
-    "index.html": "/HamsterStudent/twitter-clone.git/index.html",
-    "main.ff37f1a6.css.map": "/HamsterStudent/twitter-clone.git/static/css/main.ff37f1a6.css.map",
-    "main.c29c846e.js.map": "/HamsterStudent/twitter-clone.git/static/js/main.c29c846e.js.map"
+    "main.css": "/HamsterStudent/twitter-clone/static/css/main.ff37f1a6.css",
+    "main.js": "/HamsterStudent/twitter-clone/static/js/main.b5f0b8c3.js",
+    "index.html": "/HamsterStudent/twitter-clone/index.html",
+    "main.ff37f1a6.css.map": "/HamsterStudent/twitter-clone/static/css/main.ff37f1a6.css.map",
+    "main.b5f0b8c3.js.map": "/HamsterStudent/twitter-clone/static/js/main.b5f0b8c3.js.map"
   },
   "entrypoints": [
     "static/css/main.ff37f1a6.css",
-    "static/js/main.c29c846e.js"
+    "static/js/main.b5f0b8c3.js"
   ]
 }
