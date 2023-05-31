@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/HamsterStudent/twitter-clone/static/css/main.ff37f1a6.css",
-    "main.js": "/HamsterStudent/twitter-clone/static/js/main.834a853e.js",
-    "index.html": "/HamsterStudent/twitter-clone/index.html",
-    "main.ff37f1a6.css.map": "/HamsterStudent/twitter-clone/static/css/main.ff37f1a6.css.map",
-    "main.834a853e.js.map": "/HamsterStudent/twitter-clone/static/js/main.834a853e.js.map"
+    "main.css": "/twitter-clone/static/css/main.ff37f1a6.css",
+    "main.js": "/twitter-clone/static/js/main.66dd28c0.js",
+    "index.html": "/twitter-clone/index.html",
+    "main.ff37f1a6.css.map": "/twitter-clone/static/css/main.ff37f1a6.css.map",
+    "main.66dd28c0.js.map": "/twitter-clone/static/js/main.66dd28c0.js.map"
   },
   "entrypoints": [
     "static/css/main.ff37f1a6.css",
-    "static/js/main.834a853e.js"
+    "static/js/main.66dd28c0.js"
   ]
 }
