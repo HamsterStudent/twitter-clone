@@ -1,16 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { dbService, storageService } from "fBase";
-import {
-  collection,
-  addDoc,
-  serverTimestamp,
-  getDocs,
-  DocumentData,
-  query,
-  onSnapshot,
-  orderBy,
-  Timestamp,
-} from "firebase/firestore";
+import { dbService } from "fBase";
+import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
 import Tweet from "components/Tweet";
 import TweetFactory from "components/TweetFactory";
 
